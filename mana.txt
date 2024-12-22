@@ -1,0 +1,42 @@
+
+# SSID of the AP
+ssid=Playtronics
+
+# Network interface to use and driver type
+interface=wlan0
+driver=nl80211
+
+# Channel and mode
+channel=1
+hw_mode=g
+
+# Setting up hostapd as an EAP server
+ieee8021x=1
+eap_server=1
+
+# Key workaround for Win XP
+eapol_key_index_workaround=0
+
+# EAP user file we created earlier
+eap_user_file=/etc/hostapd-mana/mana.eap_user
+
+# Certificate paths created earlier
+ca_cert=/etc/freeradius/3.0/certs/ca.pem
+server_cert=/etc/freeradius/3.0/certs/server.pem
+private_key=/etc/freeradius/3.0/certs/server.key
+private_key_passwd=whatever
+dh_file=/etc/freeradius/3.0/certs/dh
+
+# Open authentication
+auth_algs=1
+
+# WPA/WPA2
+wpa=3
+wpa_key_mgmt=WPA-EAP
+wpa_pairwise=CCMP TKIP
+
+# Enable Mana WPE
+mana_wpe=1
+mana_credout=/tmp/hostapd.credout
+mana_eapsuccess=1
+mana_eaptls=1
